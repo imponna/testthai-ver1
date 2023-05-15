@@ -4227,7 +4227,7 @@ local Dungeon = Library:Tab("ลงดัน","rbxassetid://11446957539")
 local DevilFruit = Library:Tab("ผลปีศาจ+มอง","rbxassetid://11446965348")
 local Shop = Library:Tab("ร้าน","rbxassetid://6031265976")
 local Misc = Library:Tab("อื่น ๆ","rbxassetid://11447063791")
-local Op = Library:Tab("Status", "rbxassetid://7040410130")
+local Op = Library:Tab("สเตตัส", "rbxassetid://7040410130")
 --------------------------------------------------------------------
 
 Setting:Label("Join My Discord For More Info!")
@@ -4256,7 +4256,7 @@ spawn(function()
   end)
  end)
 
-Setting:Toggle("Anti AFK",true,function(value)
+Setting:Toggle("แอนตี้ AFK",true,function(value)
  _G.AFK = value
  end)
 
@@ -4272,7 +4272,7 @@ Setting:Slider1("Farm Distance",1,100,20,function(value)
  end)
 end
 
-Setting:Dropdown("Select Farm Method", {
+Setting:Dropdown("เลือกโหมดฟาม", {
  "Behind","Below","Upper"
 },function(value)
  _G.Method = value
@@ -4415,7 +4415,7 @@ if game:GetService("ReplicatedStorage").Effect.Container:FindFirstChild("Respawn
 	game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()
 end
 
-Setting:Toggle("Bring Mob [Normal]",true,function(value)
+Setting:Toggle("รวมมอน [Normal]",true,function(value)
  _G.BringNormal = value
 end)
 
@@ -4476,7 +4476,7 @@ end)
 			end
 		end)
 
-Setting:Toggle("Fast Attack [New]",true,function(value)
+Setting:Toggle("ตีเร็วมาก [New]",true,function(value)
  _G.FastAttack = value
 end)
 
@@ -4605,7 +4605,7 @@ end)
     end)
 
 
-Setting:Seperator(" Settings Mastery ")
+Setting:Seperator(" ตั้งค่า Mastery ")
 
 if not game:GetService("UserInputService").TouchEnabled and not game:GetService("UserInputService").KeyboardEnabled == false then
 _G.Kill_At = 25
@@ -4708,11 +4708,11 @@ if v:IsA("Tool") then
 table.insert(WeaponList ,v.Name)
 end
 end
-local SelectWeapona = Main:Dropdown("Select Weapon",WeaponList,function(value)
+local SelectWeapona = Main:Dropdown("เลือกอาวุธ",WeaponList,function(value)
  _G.Select_Weapon = value
  end)
 
-Main:Button("Refresh Weapon",function()
+Main:Button("รีอาวุธ",function()
  SelectWeapona:Clear()
  for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
  SelectWeapona:Add(v.Name)
@@ -4730,14 +4730,14 @@ spawn(function()
     end)
 end)
 
-Main:Button("Stop Teleport",function()
+Main:Button("หยุดวาร์ป",function()
   topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
   _G.Clip = false
   end)
 
 Main:Seperator(" Main ")
 
-Main:Dropdown("Select Mode Farm", {
+Main:Dropdown("เลือกมอนฟาม", {
  "Level Farm","Fast Mode","No Quest","Near Farm Mode"
 },function(value)
  _G.Select_Mode_Farm = value
@@ -4777,7 +4777,7 @@ if World2 then
 
 Main:Seperator("Auto New Sea")
 
-Main:Toggle("Auto Third Sea",_G.Auto_Third_World,function(value)
+Main:Toggle("ออโต้ ทะเล สาม",_G.Auto_Third_World,function(value)
  _G.Auto_Third_World = value
  StopTween(_G.Auto_Third_World)
  end)
@@ -4825,7 +4825,7 @@ if World1 then
 
 Main:Seperator("Auto New Sea")
 
-Main:Toggle("Auto Second Sea",_G.Auto_New_World,function(value)
+Main:Toggle("ออโต้ ทะเล สอง",_G.Auto_New_World,function(value)
  _G.Auto_New_World = value
  StopTween(_G.Auto_New_World)
  end)
@@ -4896,7 +4896,7 @@ end)
 
 Main:Seperator(" Mastery ")
  
-Main:Toggle("Auto BF Mastery",_G.AutoFarmFruitMastery,function(value)
+Main:Toggle("ออโต้ ฟาม มาสผล",_G.AutoFarmFruitMastery,function(value)
   _G.AutoFarmFruitMastery = value
   StopTween(_G.AutoFarmFruitMastery)
   if _G.AutoFarmFruitMastery == false then
@@ -5509,7 +5509,7 @@ Main:Seperator(" Materials ")
  _G.SelectMaterial = value
 end)
 
-Main:Toggle("Farm Selected Material",_G.AutoFarmMaterial,function(t)
+Main:Toggle("เลือก ฟาม วัถุดิบ",_G.AutoFarmMaterial,function(t)
 			_G.AutoFarmMaterial = t
 			StopTween(_G.AutoFarmMaterial)
 end)
@@ -5649,7 +5649,7 @@ spawn(function()
 			end
 end)
 
-Main:Seperator(" Mirage Island ")
+Main:Seperator(" เกาะ ลับ ")
 
 Main:Toggle("ออโต้หาเกาะลับ",false,function(value)
  if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
@@ -5661,11 +5661,11 @@ end
 end
 end)
 
-Main:Toggle("Auto Mirage Island Hop",false,function(value)
+Main:Toggle("ออโต้ เกาะลับ ย้ายเซิฟ",false,function(value)
  _G.Mystichop = value
 end)
 
-Main:Seperator(" Chest ")
+Main:Seperator(" กล่อง ")
 
 Main:Toggle("ฟามกล่องแบบวาร์ป",false,function(vu)
 	_G.ChestBypass = vu
@@ -6241,9 +6241,9 @@ end)
 		end
 	end)
 
-Weapon:Seperator(" Soul Guitar ")
+Weapon:Seperator(" กีต้าร์ ")
 
-Weapon:Toggle("Auto Soul Guitar",_G.AutoNevaSoulGuitar,function(value)
+Weapon:Toggle("ออโต้ทำกีต้าร์",_G.AutoNevaSoulGuitar,function(value)
   _G.AutoNevaSoulGuitar = value    
  			StopTween(_G.AutoNevaSoulGuitar)
  end)
@@ -6831,9 +6831,9 @@ end
 
 if World1 then
 
-Weapon:Seperator(" Auto Saber ")
+Weapon:Seperator(" ออโต้ทำดาบแชงค์ ")
 
-Weapon:Toggle("Auto Saber",_G.AutoSaber,function(value)
+Weapon:Toggle("ออโต้ ดาบแชงค์",_G.AutoSaber,function(value)
 				_G.AutoSaber = value
 			end)
 			
@@ -7096,16 +7096,16 @@ Weapon:Toggle("Auto Saber",_G.AutoSaber,function(value)
 
 elseif World2 then
 
-Weapon:Seperator(" Bartilo Quest ")
+Weapon:Seperator(" เควสบาโท ")
 
-Weapon:Toggle("Auto Bartilo Quest",_G.Auto_Bartilo_Quest,function(value)
+Weapon:Toggle("ออโต้ เควส บาโท",_G.Auto_Bartilo_Quest,function(value)
  _G.Auto_Bartilo_Quest = value
 StopTween(_G.Auto_Bartilo_Quest)
 end)
 
-Weapon:Seperator(" Race V2 ")
+Weapon:Seperator(" เผ่า V2 ")
 
-Weapon:Toggle("Auto Evo Race [V2]",_G.Auto_Evo_Race_V2,function(value)
+Weapon:Toggle("ออโต้ทำเผ่า [V2]",_G.Auto_Evo_Race_V2,function(value)
  _G.Auto_Evo_Race_V2 = value
 StopTween(_G.Auto_Evo_Race_V2)
 end)
@@ -7179,9 +7179,9 @@ end)
 		end)
 	end)
 
-Weapon:Seperator(" Legendary Sword ")
+Weapon:Seperator(" ดาบโซโล ")
 
-Weapon:Toggle("Auto Buy Legendary Sword",_G.AutoBuyLegendarySword,function(Value)
+Weapon:Toggle("ออโต้ซื้อดาบโซโล",_G.AutoBuyLegendarySword,function(Value)
 			_G.AutoBuyLegendarySword = Value
 		end)
 		spawn(function()
@@ -7212,7 +7212,7 @@ Weapon:Toggle("Auto Buy Legendary Sword",_G.AutoBuyLegendarySword,function(Value
             end
 		end)
 
-		Weapon:Toggle("Auto Buy Legendary Sword Hop",_G.AutoBuySwordHop,function(Value)
+		Weapon:Toggle("ย้ายเซิฟซื้อดาบโซโล",_G.AutoBuySwordHop,function(Value)
 			_G.AutoBuyLegendarySword_Hop = Value
 		end)
 		spawn(function()
@@ -7291,9 +7291,9 @@ Weapon:Toggle("Auto Buy Legendary Sword",_G.AutoBuyLegendarySword,function(Value
 		end
 	end)
 
-Weapon:Seperator(" Haki Color Enhancement ")
+Weapon:Seperator(" ซื้อสีฮาคิ ")
 
-	Weapon:Toggle("Auto Buy Enchancement",_G.Auto_Buy_Enchancement,function(value)
+	Weapon:Toggle("ออโต้ซื้อสีฮาคิ",_G.Auto_Buy_Enchancement,function(value)
  _G.Auto_Buy_Enchancement = value
 StopTween(_G.Auto_Buy_Enchancement)
 end)
@@ -7311,9 +7311,9 @@ end)
 		end
 	end)
 
-		Weapon:Seperator(" Rengoku ")
+		Weapon:Seperator(" ดาบเรนโกคุ ")
 
-	Weapon:Toggle("Auto Rengoku",_G.Auto_Rengoku,function(value)
+	Weapon:Toggle("ออโต้ทำดาบเรนโกคุ",_G.Auto_Rengoku,function(value)
  _G.Auto_Rengoku = value
 StopTween(_G.Auto_Rengoku)
 end)
@@ -7370,15 +7370,15 @@ end)
 		end
 	end)
 	
-		Weapon:Seperator(" Swan Glasses ")
+		Weapon:Seperator(" แว่นโดฟา ")
 
-Weapon:Toggle("Auto Swan Glasses",_G.Auto_Swan_Glasses,function(value)
+Weapon:Toggle("ออโต้แว่นโดฟา",_G.Auto_Swan_Glasses,function(value)
  _G.Auto_Swan_Glasses = value
 StopTween(_G.Auto_Swan_Glasses)
 end)
 
 
-	Weapon:Toggle("Auto Swan Glasses Hop",_G.Auto_Swan_Glasses_Hop,function(value)
+	Weapon:Toggle("ออโต้ย้ายเซิฟแว่นโดฟา",_G.Auto_Swan_Glasses_Hop,function(value)
  _G.Auto_Swan_Glasses_Hop = value
 end)
 
@@ -7412,13 +7412,13 @@ end)
 	
 		Weapon:Seperator(" Trident ")
 	
-	Weapon:Toggle("Auto Dragon Trident",_G.Auto_Dragon_Trident,function(value)
+	Weapon:Toggle("ออโต้ Dragon Trident",_G.Auto_Dragon_Trident,function(value)
  _G.Auto_Dragon_Trident = value
 StopTween(_G.Auto_Dragon_Trident)
 end)
 
 	
-	Weapon:Toggle("Auto Dragon Trident Hop",_G.Auto_Dragon_Trident_Hop,function(value)
+	Weapon:Toggle("ออโต้ย้ายเซิฟหา Dragon Trident",_G.Auto_Dragon_Trident_Hop,function(value)
 _G.Auto_Dragon_Trident_Hop = value
 end)
 	
@@ -7619,9 +7619,9 @@ end)
 		end
 	end)
 	
-		Weapon:Seperator(" Yama ")
+		Weapon:Seperator(" ยามะ ")
 	
-	Weapon:Toggle("Auto Yama",_G.Auto_Yama,function(value)
+	Weapon:Toggle("ออโต้ยามะ",_G.Auto_Yama,function(value)
 	 _G.Auto_Yama = value
  	StopTween(_G.Auto_Yama)
 end)
@@ -7639,7 +7639,7 @@ end)
 		end
 	end)
 	
-		Weapon:Seperator(" Rainbow Haki ")
+		Weapon:Seperator(" ฮาคิสีรุ้ง ")
 	
 	Weapon:Toggle("ออโต้ฮาคิรุ้ง",_G.Auto_Rainbow_Haki,function(value)
  _G.Auto_Rainbow_Haki = value
@@ -7647,7 +7647,7 @@ StopTween(_G.Auto_Rainbow_Haki)
 end)
 
 	
-	Weapon:Toggle("Auto Rainbow Haki Hop",_G.Auto_Rainbow_Haki_Hop,function(value)
+	Weapon:Toggle("ออโต้ย้ายเซิฟทำฮาคิสีรุ้ง",_G.Auto_Rainbow_Haki_Hop,function(value)
  _G.Auto_Rainbow_Haki_Hop = value
 StopTween(_G.Auto_Rainbow_Haki_Hop)
 end)
@@ -7804,13 +7804,13 @@ end)
 	
 		Weapon:Seperator(" Canvander ")
 
-	Weapon:Toggle("Auto Canvander",_G.Auto_Canvander,function(value)
+	Weapon:Toggle("ออโต้ดาบ Canvander",_G.Auto_Canvander,function(value)
  _G.Auto_Canvander = value
 StopTween(_G.Auto_Canvander)
 end)
 
 	
-	Weapon:Toggle("Auto Canvander Hop",_G.Auto_Canvander_Hop,function(value)
+	Weapon:Toggle("ออโต้ย้ายเซิฟหา Canvander",_G.Auto_Canvander_Hop,function(value)
  _G.Auto_Canvander_Hop = value
 StopTween(_G.Auto_Canvander_Hop)
 end)
@@ -7848,13 +7848,13 @@ end)
 	
 		Weapon:Seperator(" Twin Hook ")
 	
-	Weapon:Toggle("Auto Twin Hook",_G.Auto_Twin_Hook,function(value)
+	Weapon:Toggle("ออโต้ Twin Hook",_G.Auto_Twin_Hook,function(value)
  _G.Auto_Twin_Hook = value
 StopTween(_G.Auto_Twin_Hook)
 end)
 
 	
-	Weapon:Toggle("Auto Twin Hook Hop",_G.Auto_Twin_Hook_Hop,function(value)
+	Weapon:Toggle("ออโต้ย้ายเซิฟหา Twin Hook",_G.Auto_Twin_Hook_Hop,function(value)
  _G.Auto_Twin_Hook_Hop = value
 StopTween(_G.Auto_Twin_Hook_Hop)
 end)
@@ -7934,9 +7934,9 @@ end)
 		end
 	end)
 
-Weapon:Seperator(" Tushita ")
+Weapon:Seperator(" ทูชิตะ ")
 
-Weapon:Toggle("Auto Tushita Sword",_G.Autotushita,function(value)
+Weapon:Toggle("ออโต้ทำดาบทูชิตะ",_G.Autotushita,function(value)
  _G.Autotushita = value
 	end)
 	
@@ -7982,7 +7982,7 @@ end
 
 if World3 then
 
-Weapon:Seperator(" Observation Haki V2 ")
+Weapon:Seperator(" ฮาคิสังเกต V2 ")
 
 Weapon:Toggle("ออโต้ฮาคิสังเกตV2",_G.AutoObservationHakiV2,function(x)
 		_G.AutoObservationHakiV2 = x
@@ -8279,9 +8279,9 @@ Weapon:Toggle("ออโต้ฮาคิสังเกตV2",_G.AutoObservati
 
 if World3 then
 
-Weapon:Seperator(" Musketeer Hat ")
+Weapon:Seperator(" หมวก Musketeer ")
 
-Weapon:Toggle("Auto Musketeer Hat",_G.Auto_Musketeer_Hat,function(value)
+Weapon:Toggle("ออโต้ทำหมวก Musketeer",_G.Auto_Musketeer_Hat,function(value)
  _G.Auto_Musketeer_Hat = value
 StopTween(_G.Auto_Musketeer_Hat)
 end)
@@ -8404,14 +8404,14 @@ end
 
 if World2 then
 
-	Weapon:Seperator(" Superhuman ")
+	Weapon:Seperator(" หมัดซุป ")
 	
-Weapon:Toggle("Auto Superhuman",_G.Auto_Superhuman,function(value)
+Weapon:Toggle("ออโต้หมัดซุป",_G.Auto_Superhuman,function(value)
  _G.Auto_Superhuman = value
 end)
 
 
-Weapon:Toggle("Auto Fully Superhuman",_G.Auto_Fully_Superhuman,function(value)
+Weapon:Toggle("ออโต้ทำหมัดซุปทั้งหมด",_G.Auto_Fully_Superhuman,function(value)
  _G.Auto_Fully_Superhuman = value
 end)
 
@@ -8521,9 +8521,9 @@ spawn(function()
     end
 end)
 
-Weapon:Seperator(" Death Step ")
+Weapon:Seperator(" ขาดำ ")
 
-Weapon:Toggle("Auto Death Step",_G.Auto_Death_Step,function(value)
+Weapon:Toggle("ออโต้ ขาดำ",_G.Auto_Death_Step,function(value)
  _G.Auto_Death_Step = value
 StopTween(_G.Auto_Death_Step)
 end)
@@ -8551,7 +8551,7 @@ spawn(function()
 	end
 end)
 
-Weapon:Toggle("Auto Fully Death Step",_G.Auto_Fully_Death_Step,function(value)
+Weapon:Toggle("ออโต้ขาดำทั้งหมด",_G.Auto_Fully_Death_Step,function(value)
  _G.Auto_Fully_Death_Step = value
 end)
 
@@ -8753,9 +8753,9 @@ spawn(function()
 	end
 end)
 
-Weapon:Seperator(" God Human ")
+Weapon:Seperator(" หมัดก็อต ")
 
-Weapon:Toggle("Auto_God_Human",_G.Auto_God_Human,function(value)
+Weapon:Toggle("ออโต้ทำหมัดก็อต",_G.Auto_God_Human,function(value)
  _G.Auto_God_Human = value
 end)
 end
@@ -8847,21 +8847,21 @@ if World1 or World2 then
 end
 
 if World3 then
-Race:Seperator("Race V4")
+Race:Seperator("เผ่า V4")
     
-    Race:Button("Teleport To Timple Of Time",function()
+    Race:Button("วาร์ปไปห้องทำเผ่า",function()
   Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
     end)
     
-Race:Button("Teleport To Lever Pull",function()
+Race:Button("วาร์ปไปคันโยก",function()
   topos(CFrame.new(28575.181640625, 14936.6279296875, 72.31636810302734))
 end)
 
-Race:Button("Teleport To Acient One (Must Be in Temple Of Time!)",function()
+Race:Button("วาร์ปไปหาNPCอัพเผ่า (ต้องอยู่ในห้องทำเ(ต้องอยู่ในห้องทำเผ่าก่อน!)",ผ่าก่อน!)",function()
   topos(CFrame.new(28981.552734375, 14888.4267578125, -120.245849609375))
 end)
    
-   Race:Button("Unlock Lever.", function()
+   Race:Button("ดึงคันโยก.", function()
 venyx:Notify("Unlocked")
 if game:GetService("Workspace").Map["Temple of Time"].Lever.Prompt:FindFirstChild("ProximityPrompt") then
     game:GetService("Workspace").Map["Temple of Time"].Lever.Prompt:FindFirstChild("ProximityPrompt"):Remove()
@@ -8914,7 +8914,7 @@ end
 ProximityPrompt.Triggered:Connect(onProximity)
 end)
 
-Race:Button("Clock Acces.", function()
+Race:Button("วาร์ปไปที่ใส่เฟือง.", function()
     game:GetService("Workspace").Map["Temple of Time"].DoNotEnter:Remove()
     game:GetService("Workspace").Map["Temple of Time"].ClockRoomExit:Remove()
 end)
@@ -8924,27 +8924,27 @@ Race:Toggle("Disabled Inf Stairs", nil, function(value)
 end)
    Race:Line()
  
-  Race:Button("Teleport Cyborg Door (Must Be in Temple Of Time!)",function()
+  Race:Button("วาร์ปไปประตูไซบอร์ก (ต้องอยู่ในห้องทำเผ่าก่อน!)",function()
   topos(CFrame.new(28492.4140625, 14894.4267578125, -422.1100158691406))
   end)
   
-  Race:Button("Teleport Fish Door (Must Be in Temple Of Time!)",function()
+  Race:Button("วาร์ปไปประตูเผ่าเงือก (ต้องอยู่ในห้องทำเผ่าก่อน!)",function()
   topos(CFrame.new(28224.056640625, 14889.4267578125, -210.5872039794922))
   end)
   
-  Race:Button("Teleport Ghoul Door (Must Be in Temple Of Time!)",function()
+  Race:Button("วาร์ปไปประตูเผ่ากูล (ต้องอยู่ในห้องทำเผ่าก่อน!)",function()
   topos(CFrame.new(28672.720703125, 14889.1279296875, 454.5961608886719))
   end)
   
-  Race:Button("Teleport Human Door (Must Be in Temple Of Time!)",function()
+  Race:Button("วาร์ปไปประตูเผ่ามนุษย์ (ต้องอยู่ในห้องทำเผ่าก่อน!)",function()
   topos(CFrame.new(29237.294921875, 14889.4267578125, -206.94955444335938))
   end)
   
-  Race:Button("Teleport Mink Door (Must Be in Temple Of Time!)",function()
+  Race:Button("วาร์ปไปประตูเผ่ามิ้ง (ต้องอยู่ในห้องทำเผ่าก่อน!)",function()
   topos(CFrame.new(29020.66015625, 14889.4267578125, -379.2682800292969))
   end)
   
-  Race:Button("Teleport Sky Door (Must Be in Temple Of Time!)",function()
+  Race:Button("วาร์ปไปประตูเผ่าสกาย (ต้องอยู่ในห้องทำเผ่าก่อน!)",function()
   topos(CFrame.new(28967.408203125, 14918.0751953125, 234.31198120117188))
   end)
   
@@ -8980,7 +8980,7 @@ spawn(function()
 	end
 end)
 
-Stats:Toggle("Auto Stats Defense",_G.Auto_Stats_Defense,function(value)
+Stats:Toggle("ออโต้อัพป้องกัน",_G.Auto_Stats_Defense,function(value)
  _G.Auto_Stats_Defense = value
 end)
 
@@ -8999,7 +8999,7 @@ spawn(function()
 	end
 end)
 
-Stats:Toggle("Auto Stats Sword",_G.Auto_Stats_Sword,function(value)
+Stats:Toggle("ออโต้อัพดาบ",_G.Auto_Stats_Sword,function(value)
  _G.Auto_Stats_Sword = value
 end)
 
@@ -9018,7 +9018,7 @@ spawn(function()
 	end
 end)
 
-Stats:Toggle("Auto Stats Gun",_G.Auto_Stats_Gun,function(value)
+Stats:Toggle("ออโต้อัพปืน",_G.Auto_Stats_Gun,function(value)
  _G.Auto_Stats_Gun = value
 end)
 
@@ -9036,7 +9036,7 @@ spawn(function()
 	end
 end)
 
-Stats:Toggle("Auto Stats Devil Fruit",_G.Auto_Stats_Devil_Fruit,function(value)
+Stats:Toggle("ออโต้อัพผลปีศาจ",_G.Auto_Stats_Devil_Fruit,function(value)
  _G.Auto_Stats_Devil_Fruit = value
 end)
 
@@ -9055,7 +9055,7 @@ spawn(function()
 	end
 end)
 
-Stats:Button("Stat Refund",function()
+Stats:Button("รีค่าพลัง",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,2)
   end)
 
@@ -9119,7 +9119,7 @@ spawn(function()
 	end
 end)
 
-P:Toggle("Teleport to Player",_G.Teleport_to_Player,function(value)
+P:Toggle("วาร์ปไปหาผู้เล้น",_G.Teleport_to_Player,function(value)
  _G.Teleport_to_Player = value
 StopTween(_G.Teleport_to_Player)
 end)
@@ -9137,7 +9137,7 @@ spawn(function()
 	end
 end)
 
-P:Toggle("Auto Kill Player [Melee]",_G.Auto_Kill_Player_Melee,function(value)
+P:Toggle("ออโต้ฆ่าผู้เล่น [Melee]",_G.Auto_Kill_Player_Melee,function(value)
  _G.Auto_Kill_Player_Melee = value
 StopTween(_G.Auto_Kill_Player_Melee)
 end)
@@ -9169,7 +9169,7 @@ spawn(function()
 	end
 end)
 
-P:Toggle("Auto Kill Player [Gun]",_G.Auto_Kill_Player_Gun,function(value)
+P:Toggle("ออโต้ฆ่าผู้เล่น[Gun]",_G.Auto_Kill_Player_Gun,function(value)
  _G.Auto_Kill_Player_Gun = value
 StopTween(_G.Auto_Kill_Player_Gun)
 end)
@@ -9209,16 +9209,16 @@ end)
 
 Teleport:Seperator(" WORLD ")
  
- Teleport:Button("Teleport To Old World",function()
+ Teleport:Button("ไปโลก1",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
   end)
  
- Teleport:Button("Teleport To Second Sea",function()
+ Teleport:Button("ไปโลก2",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
  end)
 
  
- Teleport:Button("Teleport To Third Sea",function()
+ Teleport:Button("ไปโลก3",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
   end)
  
@@ -9230,7 +9230,7 @@ Teleport:Seperator(" WORLD ")
   end
  end)
  
- Teleport:Seperator(" Island ")
+ Teleport:Seperator(" วาร์ปไปเกาะ ")
  
  if World1 then
  Teleport:Dropdown("Select Island", {
@@ -9401,7 +9401,7 @@ Teleport:Seperator(" WORLD ")
   StopTween(_G.TeleportIsland)
  end)
  
- Teleport:Button("Instant Teleport",function()
+ Teleport:Button("วาร์ปบายพาส",function()
 		 _G.Instant = true
         if _G.Instant == true then
 	     if _G.SelectIsland == "Port Town" then 
@@ -9697,11 +9697,11 @@ Teleport:Seperator(" WORLD ")
 end)
 
 if World1 then
-    Dungeon:Label("Dungeon Raid Only Available At Sea 2 and 3")
+    Dungeon:Label("ใช้งานได้เฉพาะโลก 2 3 เท่านั้น")
 end
 
 if World2 or World3 then
-Dungeon:Seperator("Use in Dungeon Only!")
+Dungeon:Seperator("ใช้ในดันเท่านั้น!")
 
 chip = {
 	"Flame", 
@@ -9893,9 +9893,9 @@ function topos(Pos)
 end
 end
 
-Dungeon:Seperator("\\\\\  Law Dungeon  //")
+Dungeon:Seperator("\\\\\  ดันลอว์ //")
 
-Dungeon:Toggle("Auto Buy Law Chip",_G.Auto_Buy_Law_Chip,function(value)
+Dungeon:Toggle("ออโต้ซื้อชิบลอว์",_G.Auto_Buy_Law_Chip,function(value)
  _G.Auto_Buy_Law_Chip = value
 end)
 
@@ -9918,7 +9918,7 @@ spawn(function()
 	end
 end)
 
-Dungeon:Toggle("Auto Start Law Dungeon",_G.Auto_Start_Law_Dungeon,function(value)
+Dungeon:Toggle("ออโต้เริ่มดันลอว์",_G.Auto_Start_Law_Dungeon,function(value)
  _G.Auto_Start_Law_Dungeon = value
 end)
 
@@ -9935,7 +9935,7 @@ spawn(function()
 	end
 end)
 
-Dungeon:Toggle("Auto Kill Law",_G.Auto_Kill_Law,function(value)
+Dungeon:Toggle("ออโต้ฆ่าบอสลอว์",_G.Auto_Kill_Law,function(value)
 _G.Auto_Kill_Law = value
 end)
 
@@ -10582,25 +10582,25 @@ if World2 then
 	end)
 	
  
- Shop:Seperator(" Abilities ")
+ Shop:Seperator(" ความสามารถ ")
  
- Shop:Button("Buy Geppo",function()
+ Shop:Button("ชมจันทร์",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
   end)
  
- Shop:Button("Buy Buso Haki",function()
+ Shop:Button("ฮาคิเกราะ",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
   end)
  
- Shop:Button("Buy Soru",function()
+ Shop:Button("โซล",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
   end)
  
- Shop:Button("Buy Observation(Ken) Haki",function()
+ Shop:Button("ฮาคิสังเกต",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
   end)
  
- Shop:Seperator(" Fighting Style ")
+ Shop:Seperator(" หมัด ")
  
  Shop:Button("Buy Black Leg",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
@@ -10643,7 +10643,7 @@ if World2 then
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
   end)
  -----Shop----------------
- Shop:Seperator(" Accessory ")
+ Shop:Seperator(" ของสวมใส่ ")
  
  Shop:Button("Tomoe Ring",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Tomoe Ring")
@@ -10657,7 +10657,7 @@ if World2 then
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Swordsman Hat")
   end)
  
- Shop:Seperator(" Sword ")
+ Shop:Seperator(" ดาบ ")
  
  Shop:Button("Cutlass",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
@@ -10695,7 +10695,7 @@ if World2 then
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
   end)
  
- Shop:Seperator(" Gun ")
+ Shop:Seperator(" ปืน ")
  
  Shop:Button("Slingshot",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Slingshot")
@@ -10827,7 +10827,7 @@ Misc:Button("Title Name",function()
 end)
 
 
-Misc:Button("Color Haki",function()
+Misc:Button("เปลี่ยนสีฮาคิ",function()
  game.Players.localPlayer.PlayerGui.Main.Colors.Visible = true
 end)
 
@@ -10877,11 +10877,11 @@ local x2Code = {
         end
     end)
     
-    Misc:Dropdown("Selected Codes",{"1MLIKES_RESET","THIRDSEA","SUB2GAMERROBOT_RESET1","SUB2UNCLEKIZARU"},function(value)
+    Misc:Dropdown("เลือกโค้ด",{"1MLIKES_RESET","THIRDSEA","SUB2GAMERROBOT_RESET1","SUB2UNCLEKIZARU"},function(value)
         _G.CodeSelect = value
     end)
     
-    Misc:Button("Redeem Code",function()
+    Misc:Button("ใช้โค้ด",function()
         game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(_G.CodeSelect)
     end)
 
@@ -10974,7 +10974,7 @@ Misc:Toggle("Dodge No Cooldown",false,function(value)
         NoDodgeCool()
     end)
     
-    Misc:Toggle("Auto Active Race",_G.AutoAgility,function(value)
+    Misc:Toggle("ออโต้เปิดสกิลเผ่าV2",_G.AutoAgility,function(value)
         _G.AutoAgility = value
     end)
     
@@ -11003,7 +11003,7 @@ Misc:Toggle("Dodge No Cooldown",false,function(value)
         end
     end)
     
-    Misc:Toggle("Infinite Obversation Range",getgenv().InfiniteObRange,function(value)
+    Misc:Toggle("ฮาคิสังเกตไม่จำกัด",getgenv().InfiniteObRange,function(value)
         getgenv().InfiniteObRange = value
         local VS = game:GetService("Players").LocalPlayer.VisionRadius.Value
         while getgenv().InfiniteObRange do
@@ -11022,7 +11022,7 @@ Misc:Toggle("Dodge No Cooldown",false,function(value)
         end
     end)
     
-    Misc:Toggle("Infinite Geppo",getgenv().InfGeppo,function(value)
+    Misc:Toggle("เดินชมจันทร์ไม่จำกัด",getgenv().InfGeppo,function(value)
         getgenv().InfGeppo = value
     end)
     
@@ -11048,7 +11048,7 @@ Misc:Toggle("Dodge No Cooldown",false,function(value)
         end
     end)
     
-    Misc:Toggle("Infinite Soru",getgenv().InfSoru,function(value)
+    Misc:Toggle("โซลไม่จำกัด",getgenv().InfSoru,function(value)
         getgenv().InfSoru = value
     end)
     
@@ -11119,7 +11119,7 @@ spawn(function()
     end)
     
         
-    Misc:Button("Unlock FPS",function()
+    Misc:Button("ปลดล็อค FPS",function()
         setfpscap(100)
     end)
 Misc:Button("Invisible",function()
